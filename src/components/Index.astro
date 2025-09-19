@@ -1,28 +1,26 @@
 ---
 import Image from "astro/components/Image.astro";
-import baromini from "../assets/img/Baronette-minimalista-cuadrado.png";  
+import baromini from "../assets/img/Baronette-minimalista-cuadrado.png";
 ---
-  
-  <div
-    class="flex flex-col lg:flex-row items-center justify-center max-w-5xl mx-auto mt-20 px-4 gap-8"
-  >
 
-    <div class="max-w-lg text-center lg:text-left">
-      <h1 class="text-3xl font-bold mb-4">Bienvenido a la web baronetista!</h1>
-      <p class="text-gray-700">
-        Esta es la web de un grupo de amigos creado por Propst en su tiempo
-        libre! Siéntete libre de explorar lo que ha de ofrecer la página (De
-        momento no mucho, ya que está en construcción).
-      </p>
-    </div>
-    
-    <div class="flex-shrink-0">
-      <Image
-        src={baromini}
-        alt="Imagen de Baronette"
-        class="object-contain w-64 h-64 sm:w-80 sm:h-80"
-        loading="eager"
-      />
-    </div>
-
+<div
+  class="flex flex-col lg:flex-row items-center justify-center max-w-5xl mx-auto mt-20 px-4 gap-8"
+>
+  <div class="max-w-lg text-center lg:text-left">
+    <h1 class="text-3xl font-bold mb-4">Bienvenido a la web baronetista!</h1>
+    <p class="text-gray-700">
+      Esta es la web de un grupo de amigos creado por Propst en su tiempo libre!
+      Siéntete libre de explorar lo que ha de ofrecer la página (De momento no
+      mucho, ya que está en construcción).
+    </p>
   </div>
+
+  <div class="flex-shrink-0">
+    <Image
+      src={baromini}
+      alt="Imagen de Baronette"
+      class="object-contain w-64 h-64 sm:w-80 sm:h-80"
+      loading="eager"
+    />
+  </div>
+</div>
