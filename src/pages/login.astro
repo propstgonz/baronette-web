@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LoginComp from "../components/Login.astro";
+
+const PAGE_PROPS = {
+  title: "Iniciar sesión",
+  description:
+    "Inicio de sesión en Baronette.es",
+  image: "/metaimage.png",
+};
+---
+
+<Layout {...PAGE_PROPS}>
+  <LoginComp />
+</Layout>
