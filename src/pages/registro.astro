@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import EnProgreso from "../components/En-progreso.astro";
+import RegistroComp from "../components/Registro.astro";
 
 const PAGE_PROPS = {
   title: "Registro",
@@ -10,6 +10,6 @@ const PAGE_PROPS = {
 };
 ---
 
-<Layout>
-  <EnProgreso />
+<Layout {...PAGE_PROPS}>
+  <RegistroComp />
 </Layout>
