@@ -1,5 +1,5 @@
 ---
-
+const {} = Astro.props;
 ---
 
 <header class="bg-orange-500 text-white py-6">
@@ -13,16 +13,23 @@
     <nav class="flex gap-6 text-sm">
       <a href="/" class="hover:text-orange-200 transition-colors">Inicio</a>
       <a href="/cosas" class="hover:text-orange-200 transition-colors">Cosas</a>
-      <a href="/registro" class="hover:text-orange-200 transition-colors"
-        >Registro</a
+      <a href="/login" class="hover:text-orange-200 transition-colors"
+        >Iniciar sesión</a
       >
       <a href="/foro" class="hover:text-orange-200 transition-colors">Foro</a>
       <a href="/email" class="hover:text-orange-200 transition-colors">E-mail</a
       >
     </nav>
 
-    <p class="text-xs opacity-80 text-center sm:text-right">
-      Me encantaría saber qué poner aquí, lol
-    </p>
+    <p id="user-name" class="text-sm font-medium sm:text-right hidden"></p>
   </div>
+
+  <script>
+    const el = document.getElementById("user-name");
+    const user = localStorage.getItem("userName");
+    if (user && el) {
+      el.textContent = `Hola, ${user}`;
+      el.classList.remove("hidden");
+    }
+  </script>
 </header>
