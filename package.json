@@ -1,21 +1,31 @@
 {
-  "name": "",
+  "name": "verdant-virgo",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^9.4.3",
+    "@astrojs/preact": "^4.1.1",
+    "@astrojs/react": "^4.3.1",
     "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.13.9",
-    "pnpm": "^10.17.0",
-    "tailwindcss": "^4.1.11"
+    "gray-matter": "^4.0.3",
+    "marked": "^16.1.2",
+    "market": "^1.0.0",
+    "preact": "^10.27.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "sharp": "^0.34.3",
+    "tailwindcss": "^4.1.11",
+    "typed.js": "^2.1.0"
   },
   "devDependencies": {
-    "@types/node": "^24.2.1",
-    "typescript": "^5.9.2"
+    "@types/marked": "^5.0.2",
+    "astro": "^5.13.7",
+    "prettier": "^3.6.2"
   }
 }
