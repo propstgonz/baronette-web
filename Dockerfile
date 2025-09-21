@@ -1,22 +1,21 @@
-# Build
-FROM node:20-alpine AS builder
+# ETAPA 1: BUILD
+FROM node:lts-alpine AS builder
 
 WORKDIR /app
 
 RUN apk add --no-cache python3 make g++ vips-dev && rm -rf /var/cache/apk/*
 
-RUN corepack enable && corepack prepare pnpm@latest --activate
-
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
+COPY package.json package-lock.json ./
+RUN npm install --frozen-lockfile
 
 COPY . .
-RUN pnpm build
+RUN npm run build
 
-RUN pnpm prune --prod
+RUN npm prune --prod
 
-# Producción
-FROM node:20-alpine AS runner
+
+# ETAPA 2: PRODUCCIÓN
+FROM node:lts-alpine AS runner
 
 WORKDIR /app
 
