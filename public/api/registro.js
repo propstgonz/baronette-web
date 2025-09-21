@@ -1,3 +1,5 @@
+import { API_BASE_URL } from "./config.js";
+
 const form = document.querySelector('#signup-form');
 
 form.addEventListener('submit', async function(event) {
@@ -25,14 +27,21 @@ form.addEventListener('submit', async function(event) {
             body: JSON.stringify(data)
         });
 
-        const result = await response.json();
+    let result;
+    try {
+        result = await response.json();
+    } catch (e) {
+        alert("El servidor no devolvió JSON válido");
+        return;
+    }
 
-        if (response.ok) {
-            alert('¡Te has registrado correctamente!');
-            window.location.href = "/";
-        } else {
-            alert(result.message || 'Error en el registro.');
-        }
+    if (response.ok) {
+        alert('¡Te has registrado correctamente!');
+        window.location.href = "https://baronette.es/login";
+    } else {
+        alert(result.message || `Error ${response.status}: ${response.statusText}`);
+    }
+
     } catch (error) {
         console.error('Error:', error);
         alert('Error al intentar registrar el usuario.');
