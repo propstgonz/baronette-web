@@ -1,21 +1,35 @@
 ---
-import { headerLinks } from '../data/header';
+import { headerLinks } from "../data/header";
+import Image from "astro/components/Image.astro";
+import logoSrc from "../assets/img/Baronette-minimalista-cuadrado.png";
 ---
 
 <header class="bg-orange-500 text-white py-6">
   <div
-    class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4"
+    class="max-w-6xl mx-auto px-0 flex flex-col sm:flex-row justify-between items-center gap-4"
   >
     <div class="flex items-center gap-2">
-      <span class="text-2xl font-bold tracking-wide">Baronette.es</span>
+      <a href="/" class="flex items-center gap-2">
+        <Image
+          src={logoSrc}
+          alt="Logo Baronette"
+          width={40}
+          height={40}
+          class="object-contain rounded-md"
+          loading="eager"
+        />
+        <span class="text-2xl font-bold tracking-wide">Baronette.es</span>
+      </a>
     </div>
 
     <nav class="flex gap-6 text-sm">
-      {headerLinks.map(link => (
-        <a href={link.href} class="hover:text-orange-200 transition-colors">
-          {link.text}
-        </a>
-      ))}
+      {
+        headerLinks.map((link) => (
+          <a href={link.href} class="hover:text-orange-200 transition-colors">
+            {link.text}
+          </a>
+        ))
+      }
     </nav>
 
     <p id="user-name" class="text-sm font-medium sm:text-right hidden"></p>
