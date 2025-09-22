@@ -1,5 +1,5 @@
 ---
-const {} = Astro.props;
+import { headerLinks } from '../data/header';
 ---
 
 <header class="bg-orange-500 text-white py-6">
@@ -11,14 +11,11 @@ const {} = Astro.props;
     </div>
 
     <nav class="flex gap-6 text-sm">
-      <a href="/" class="hover:text-orange-200 transition-colors">Inicio</a>
-      <a href="/cosas" class="hover:text-orange-200 transition-colors">Cosas</a>
-      <a href="/login" class="hover:text-orange-200 transition-colors"
-        >Iniciar sesión</a
-      >
-      <a href="/foro" class="hover:text-orange-200 transition-colors">Foro</a>
-      <a href="/email" class="hover:text-orange-200 transition-colors">E-mail</a
-      >
+      {headerLinks.map(link => (
+        <a href={link.href} class="hover:text-orange-200 transition-colors">
+          {link.text}
+        </a>
+      ))}
     </nav>
 
     <p id="user-name" class="text-sm font-medium sm:text-right hidden"></p>

@@ -1,3 +1,7 @@
+---
+import { footerLinks } from '../data/footer';
+---
+
 <footer class="bg-orange-600 text-white py-6">
   <div class="max-w-6xl mx-auto px-4">
     <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
@@ -6,32 +10,16 @@
       </p>
 
       <ul class="flex flex-wrap gap-6 text-sm">
-        <li>
-          <a
-            href="https://github.com/propstgonz"
-            class="text-orange-200 hover:text-white transition-colors"
-          >
-            Repositorio de GitHub
-          </a>
-        </li>
-
-        <li>
-          <a
-            href="https://es.wikipedia.org/wiki/Licencia_MIT"
-            class="text-orange-200 hover:text-white transition-colors"
-          >
-            Información de licencia
-          </a>
-        </li>
-
-        <li>
-          <a
-            href="mailto:propstgonz@baronette.es"
-            class="text-orange-200 hover:text-white transition-colors"
-          >
-            Contacto
-          </a>
-        </li>
+        {footerLinks.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class="text-orange-200 hover:text-white transition-colors"
+            >
+              {link.text}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   </div>
