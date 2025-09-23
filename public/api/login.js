@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "./config.js";
+import { API_BASE_URL } from "./config.ts";
 
 document.getElementById('loginForm').addEventListener('submit', async function(event) {
     event.preventDefault(); // Evitar el envío por defecto del formulario
