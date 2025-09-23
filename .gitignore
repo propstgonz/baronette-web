@@ -27,4 +27,4 @@ pnpm-debug.log*
 gitzen.config.json
 
 # Ignorar la carpeta donde tengo mi entorno de pre-producción
-dev-comps
+dev-comp
