@@ -12,10 +12,10 @@ import type { Cosa } from "../types/cosas";
 
 export const cosas: Cosa[] = [
     {
-    img: "https://propstgonz.baronette.es/_image?href=%2F_astro%2Fpropstfake.CzddGpRt.gif&w=292&h=290&f=webp",
-    title: "La página de Propst",
-    description: "Mi página personal/portfolio",
-    link: "https://propstgonz.baronette.es/",
+    img: "/img/FAQ.svg",
+    title: "FAQ",
+    description: "Preguntas y respuestas sobre la página",
+    link: "/faq",
   },
   {
     img: "https://fasealterna.es/_astro/background-1.D_sJXt5u.webp",
