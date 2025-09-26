@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "./config.ts";
+import { API_BASE_URL } from "./config.js";
 
 const form = document.querySelector('#signup-form');
 
