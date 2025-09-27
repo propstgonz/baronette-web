@@ -12,4 +12,9 @@ export default defineConfig({
   adapter: node({
     mode: "standalone",
   }),
+  env: {
+    schema: {
+      POSTS_API_ENDPOINT: envField.string({ context: "server", access: "secret" })
+    }
+  }
 });

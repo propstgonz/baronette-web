@@ -1,6 +1,0 @@
-Voy a utilizar la vieja API y sistema de BBDD desarrollada en 2024.
-
-Links:
-
-API - https://github.com/propstgonz/baronette-api-old
-DDBB - https://github.com/propstgonz/baronette-db
