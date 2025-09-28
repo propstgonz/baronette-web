@@ -34,19 +34,19 @@ export const cosas: Cosa[] = [
   },
 */
   {
-    img: "http://patinni.duckdns.org/favicon/favicon.png",
+    img: "/img/pokedle.png",
     title: "PokéDle",
     description: "Un juego de adivinar pokémons para gente de 300 kg by Patinni",
     link: "http://patinni.duckdns.org/",
   },
   {
-    img: "/src/assets/img/trollface.png",
+    img: "/img/trollface.png",
     title: "Mi primera web",
     description: "Tal cual, mi primera web",
     link: "http://localhost:80",
   },
   {
-    img: "/src/assets/img/baronette.png",
+    img: "/img/Baronette.png",
     title: "baronette.es (Primera versión)",
     description: "La primera versión de Baronette.es",
     link: "https://github.com/propstgonz/baronette-webapp-old",
