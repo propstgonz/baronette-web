@@ -7,7 +7,6 @@ services:
     restart: unless-stopped
     networks:
       - traefik-net
-      - baronette-webapp-api-network
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.baronette.rule=Host(`baronette.es`) || Host(`www.baronette.es`)"
@@ -17,6 +16,4 @@ services:
 
 networks:
   traefik-net:
-    external: true
-  baronette-webapp-api-network:
     external: true
