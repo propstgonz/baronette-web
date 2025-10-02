@@ -5,7 +5,6 @@ export const headerLinks: HeaderLink[] = [
   { href: "/cosas", text: "Cosas" },
   { href: "/login", text: "Iniciar sesión" },
   { href: "/foro", text: "Foro" },
-/*  
   { href: "/email", text: "E-mail" }
-*/
+
 ];

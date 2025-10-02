@@ -1,16 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import EnProgreso from "../components/En-progreso.astro";
+import EmailComp from "../components/Email.astro";
 
 const PAGE_PROPS = {
   title: "E-mail",
   description:
-    "Página del culto a nuestro salvador y única deidad (a pesar de lo que digan las demás 5000 religiones) Baronette, el corcel hacedor del Sol",
+    "Registro de correo electrónico con el dominio baronetista",
   image: "/metaimage.png",
 };
 ---
 
 <Layout {...PAGE_PROPS}>
-  <EnProgreso />
-  <script src="/api/auth-guard.js" is:inline />
+  <EmailComp />
 </Layout>

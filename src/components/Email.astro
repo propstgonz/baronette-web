@@ -1,0 +1,151 @@
+<section class="min-h-screen flex items-center justify-center px-4 py-16 bg-gray-900">
+  <div class="w-full max-w-md bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-700">
+    <h2 class="text-3xl font-bold text-center text-orange-500 mb-8">
+      Registro de Email
+    </h2>
+    
+    <form id="emailForm" class="space-y-6" novalidate>
+      <!-- Username -->
+      <div>
+        <label for="username" class="block text-sm font-semibold text-gray-300 mb-2">
+          Nombre de cuenta
+        </label>
+        <div class="flex items-center border-2 border-gray-600 rounded-lg focus-within:border-orange-500 transition-colors overflow-hidden">
+          <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            placeholder="usuario"
+            required 
+            class="w-full px-4 py-3 outline-none bg-gray-800 text-gray-100 placeholder-gray-500"
+            autocomplete="username"
+          />
+          <span class="bg-gray-700 text-gray-400 px-3 py-3 border-l border-gray-600 text-sm select-none">@baronette.es</span>
+        </div>
+      </div>
+      
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm font-semibold text-gray-300 mb-2">
+          Contraseña
+        </label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          placeholder="Ingrese su contraseña"
+          required 
+          minlength="8"
+          class="w-full px-4 py-3 border-2 border-gray-600 rounded-lg focus:outline-none focus:border-orange-500 transition-colors bg-gray-800 text-gray-100 placeholder-gray-500"
+          autocomplete="new-password"
+        />
+      </div>
+
+      <!-- Confirm Password -->
+      <div>
+        <label for="confirmPassword" class="block text-sm font-semibold text-gray-300 mb-2">
+          Repetir contraseña
+        </label>
+        <input 
+          type="password" 
+          id="confirmPassword" 
+          name="confirmPassword" 
+          placeholder="Repita su contraseña"
+          required 
+          minlength="8"
+          class="w-full px-4 py-3 border-2 border-gray-600 rounded-lg focus:outline-none focus:border-orange-500 transition-colors bg-gray-800 text-gray-100 placeholder-gray-500"
+          autocomplete="new-password"
+        />
+      </div>
+      
+      <!-- Submit -->
+      <button 
+        type="submit"
+        class="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+      >
+        Registrar
+      </button>
+      
+      <!-- Message -->
+      <div id="message" class="hidden rounded-lg p-3 text-center font-medium"></div>
+    </form>
+  </div>
+</section>
+
+<script type="module" is:inline>
+  const form = document.getElementById('emailForm');
+  const messageDiv = document.getElementById('message');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const API_BASE_URL = 'https://bwapi.baronette.es'; // <-- URL de tu API
+
+  function showMessage(text, type = 'info') {
+    messageDiv.textContent = text;
+    messageDiv.className = 'rounded-lg p-3 text-center font-medium';
+    messageDiv.classList.remove('hidden');
+    if (type === 'success') messageDiv.classList.add('bg-green-100', 'text-green-800');
+    else if (type === 'error') messageDiv.classList.add('bg-red-100', 'text-red-800');
+    else if (type === 'loading') messageDiv.classList.add('bg-blue-100', 'text-blue-800');
+    else if (type === 'warning') messageDiv.classList.add('bg-yellow-100', 'text-yellow-800');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+
+    if (!username) {
+      showMessage('El nombre de cuenta no puede estar vacío', 'error');
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      showMessage('⚠️ Las contraseñas no coinciden', 'error');
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      return;
+    }
+
+    if (password.length < 8) {
+      showMessage('La contraseña debe tener al menos 8 caracteres', 'error');
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      return;
+    }
+
+    const email = `${username}@baronette.es`;
+    showMessage('Registrando...', 'loading');
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/mail/register-mail`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      let data = null;
+      try { data = await res.json(); } catch(err){}
+
+      if (res.ok) {
+        showMessage('✅ Registro exitoso', 'success');
+        form.reset();
+        setTimeout(() => window.location.href = '/', 1400);
+      } else {
+        const errMsg = data?.message || data?.error || `Error ${res.status}`;
+        showMessage(`❌ ${errMsg}`, 'error');
+      }
+    } catch (err) {
+      console.error('Fetch error:', err);
+      showMessage('⚠️ Error de conexión con el servidor', 'warning');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+    }
+  });
+</script>
