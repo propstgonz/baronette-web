@@ -17,12 +17,6 @@ export const cosas: Cosa[] = [
     description: "Preguntas y respuestas sobre la página",
     link: "/faq",
   },
-  {
-    img: "https://fasealterna.es/_astro/background-1.D_sJXt5u.webp",
-    title: "Fase Alterna",
-    description: "El grupo del puto Mezzenas (Págame basura)",
-    link: "https://fasealterna.es/",
-  },
 
 /*
 ## Aquí irá la página graciosa que le voy a dedicar a Javier Tebas
@@ -36,7 +30,7 @@ export const cosas: Cosa[] = [
   {
     img: "/img/pokedle.png",
     title: "PokéDle",
-    description: "Un juego de adivinar pokémons para gente de 300 kg by Patinni",
+    description: "Un juego de adivinar pokémons para gente de 300 kg by Patinni (está el 90% del tiempo caída)",
     link: "http://patinni.duckdns.org/",
   },
   {
