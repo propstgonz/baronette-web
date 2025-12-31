@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@types/marked": "^5.0.2",
-    "astro": "^5.13.7",
+    "astro": "^5.16.6",
     "prettier": "^3.6.2"
   }
 }
