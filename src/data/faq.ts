@@ -33,7 +33,17 @@ export const faq: FAQItem[] = [
   },
   {
     question: 'Qué planeas agregar en un futuro?',
-    answer: `[REDACTED]`,
+    answer: `Pues ahora mismo estoy mirando de cómo hacer una especie de facebook marketplace e integrar
+    un foro en él, y hacer que las cuentas del dominio se sincronicen automáticamente. Si te soy sincero,
+    todavía no tengo muy claro como hacerlo...`,
+  },
+  {
+    question: 'Qué es el apartado de email?',
+    answer: `Es básicamente el apartado para poder registrar direcciones de correo electrónico
+    del dominio. Es tan simple como registrar una dirección e iniciar sesión con ella a través
+    de un cliente de correo como Thunderbird o cualquier otro correo que admita direcciones de
+    "empresa". Por favor, no petéis el correo con registros a páginas porno o similares, además
+    de ser unfunny, no quiero manchar la reputación del dominio.`
   },
   {
     question: 'Vas a volver a hacer el chiste de la ip?',
